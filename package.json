@@ -14,7 +14,8 @@
     "sass": "^1.21.0",
     "semver": "^6.3.0",
     "slugify": "^1.3.4",
-    "stalfos": "github:hankchizljaw/stalfos#c8971d22726326cfc04089b2da4d51eeb1ebb0eb"
+    "stalfos": "github:hankchizljaw/stalfos#c8971d22726326cfc04089b2da4d51eeb1ebb0eb",
+    "snyk": "^1.258.2"
   },
   "devDependencies": {
     "@erquhart/rollup-plugin-node-builtins": "^2.1.5",
@@ -35,7 +36,9 @@
     "cms:bundle": "rollup --config",
     "start": "concurrently \"npm run sass:process -- --watch\" \"npm run cms:bundle -- --watch\" \"chokidar \\\"src/_includes/**\\\" -c \\\"npm run cms:precompile\\\"\" \"npm run serve\"",
     "serve": "cross-env ELEVENTY_ENV=development npx eleventy --serve",
-    "production": "npm run sass:process && npm run cms:precompile && npm run cms:bundle && npx eleventy"
+    "production": "npm run sass:process && npm run cms:precompile && npm run cms:bundle && npx eleventy",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -47,5 +50,6 @@
   "bugs": {
     "url": "https://github.com/hankchizljaw/hylia/issues"
   },
-  "homepage": "https://github.com/hankchizljaw/hylia#readme"
+  "homepage": "https://github.com/hankchizljaw/hylia#readme",
+  "snyk": true
 }
